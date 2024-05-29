@@ -1,14 +1,16 @@
 # USharp
 
-USharp is a plugin for Unreal Engine (4.23) which allows for programming in C#.
+USharp, Unreal Engine (4.23) için C# ile programlama imkanı sağlayan bir eklentidir.
 
-This project adapts various parts of mono-ue https://mono-ue.github.io/ and is roughly similar but has support for Mono, .NET Framework and .NET Core. The C++ code used is mostly PInvoke methods and the equivalent mono-ue backend code is [mostly written in C#](https://github.com/pixeltris/USharp/tree/master/Managed/UnrealEngine.Runtime/UnrealEngine.Runtime/Internal).
+Bu proje, çeşitli mono-ue kısımlarını adapte eder ve genel olarak benzerdir ancak Mono, .NET Framework ve .NET Core desteğine sahiptir. Kullanılan C++ kodu genellikle PInvoke yöntemleridir ve eşdeğer mono-ue arka uç kodu çoğunlukla [C# olarak yazılmıştır](https://github.com/pixeltris/USharp/tree/master/Managed/UnrealEngine.Runtime/UnrealEngine.Runtime/Internal).
 
-_This project currently isn't usable for most use cases. There are a lot of bugs and lacking features. [Check back soon for updates!](https://github.com/pixeltris/USharp/projects/2)_
+_Bu proje şu anda çoğu kullanım senaryosu için kullanılabilir değil. Birçok hata ve eksik özellik bulunmaktadır. [Güncellemeler için yakında tekrar kontrol edin!](https://github.com/pixeltris/USharp/projects/2)_
 
-Join the gitter chat room for quick help / discussion https://gitter.im/USharp/Lobby
+Hızlı yardım / tartışma için gitter sohbet odasına katılın: [USharp Gitter Chat Room](https://gitter.im/USharp/Lobby)
 
-# Features
+- Serhat Çiftçi'nin katkılarıyla düzenlenmiş ve Türkçeleştirilmiştir. ❤️
+
+## Özellikler
 
 - Write C# using UObject exposed types (AActor, AGameMode, UActorComponent, etc). Define new UObject types and inherit existing ones. Exposed C# types can then be used in (or extended by) Blueprint.
 - Access to [Unreal's reflection system](https://www.unrealengine.com/en-US/blog/unreal-property-system-reflection) (UClass, UFunction, UProperty, etc). 
@@ -16,17 +18,17 @@ Join the gitter chat room for quick help / discussion https://gitter.im/USharp/L
 - Dynamically switch between .NET Framework, .NET Core and Mono for an improved debugging / runtime experience without having to reopen the editor
 - Supports Windows, Mac and Linux
 
-# Plugin Setup
+## Eklenti Kurulumu
 
-[See the wiki on how to setup the plugin](https://github.com/pixeltris/USharp/wiki/Plugin-Setup)
+[Eklentiyi nasıl kuracağınıza dair wiki'ye bakın](https://github.com/pixeltris/USharp/wiki/Plugin-Setup)
 
-# Issues / caveats
+## Sorunlar / sakıncalar
 
-- This project depends on a lot of PInvoked functions which could potentially behave differently on different C++ compilers. **This project may not work on some target platforms.**
-- Like mono-ue this project depends on lots of generated code and IL weaving. It probably isn't the best for performance and there is a huge amount of generated code everywhere.
-- The weaved IL currently seems to break edit-and-continue debugging (issue with cecil?)
-- There is currently too much marshaling on structs / collections (list, map, set). Marshaling needs to be redesigned to avoid copies of entire collections / structs on trivial calls between C# / native code. Additionally marshaling of delegates needs to be redesigned (various issues such as being referenced as a copy of the delegate).
+- Bu proje, potansiyel olarak farklı C++ derleyicilerinde farklı davranabilecek birçok PInvoke işlevine bağlıdır. **Bu proje bazı hedef platformlarda çalışmayabilir.**
+- Mono-ue gibi bu proje, çok miktarda üretilen kod ve IL dokuma bağımlılığına sahiptir. Performans için muhtemelen en iyisi değil ve her yerde büyük miktarda üretilmiş kod bulunmaktadır.
+- Halihazırda dokunan IL'nin düzenle-ve-devam et hata ayıklamayı bozduğu görünmektedir (cecil ile ilgili bir sorun?)
+- Şu anda yapılan aşırı derecede çok miktarda veri taşıma (struct'lar, koleksiyonlar (liste, harita, küme)) mevcuttur. Veri taşımanın, C# / native kod arasındaki önemsiz çağrılarda tüm koleksiyonların / struct'ların kopyalarını önlemek için yeniden tasarlanması gerekmektedir. Ayrıca delegelerin taşınması da yeniden tasarlanmalıdır (delegenin bir kopyası olarak referanslanması gibi çeşitli sorunlar bulunmaktadır).
 
 ---
 
-**_Why does this project exist? Why wasn't this instead contributions to mono-ue?_** Originally this project was just a way to access the UObject system from C# and ended up basically being a copy of mono-ue. The mono-ue compile times / debugging process made it hard to contribute starting with little knowledge of Unreal.
+**_Bu proje neden var? Bunun yerine neden bunlar mono-ue'ye katkı yapılmıyor?_** Başlangıçta bu proje sadece C# ile UObject sistemine erişim sağlamak için bir yol olarak düşünülmüş ve sonunda neredeyse mono-ue'nin bir kopyası olmuştur. Mono-ue'nin derleme süreleri / hata ayıklama süreci, Unreal hakkında çok az bilgiye sahip olarak katkıda bulunmayı zorlaştırdı.
