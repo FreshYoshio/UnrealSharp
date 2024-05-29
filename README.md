@@ -8,7 +8,7 @@ _Bu proje şu anda çoğu kullanım senaryosu için kullanılabilir değil. Bir�
 
 Hızlı yardım / tartışma için gitter sohbet odasına katılın: [USharp Gitter Chat Room](https://gitter.im/USharp/Lobby)
 
-- Serhat Çiftçi'nin katkılarıyla düzenlenmiş ve Türkçeleştirilmiştir. ❤️
+- Serhat Çiftçi ve İlhami Erk Çelik'in katkılarıyla düzenlenmiş ve Türkçeleştirilmiştir. ❤️
 
 ## Özellikler
 
